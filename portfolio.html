@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+        body.light-theme {
+            background-color: #92a4b8;
+            color: #000000; 
+        }
+        body.light-theme h1,
+        body.light-theme p,
+        body.light-theme .credits {
+            color: #000000; 
+        }
+
+        body.dark-theme {
+            background-color: #03122F;
+            color: #ffffff; 
+        }
+        body.dark-theme h1,
+        body.dark-theme p, 
+        body.light-theme .credits {
+            color: #ffffff; 
+        }
+
+        .toggle-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+        .toggle-container input {
+            display: none;
+        }
+        .toggle-label {
+            background-color: #ddd;
+            width: 50px;
+            height: 25px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .toggle-container input:checked + .toggle-label {
+            background-color: #333;
+            justify-content: flex-end;
+        }
+        .toggle-icon {
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: inline-block;
+            text-align: center;
+            line-height: 20px;
+        }
+        
+        body {
+            padding-bottom: 50px;
+        }
+        section {
+            flex-direction: column;
+            align-items: left;
+            text-align: left;
+            padding: 100px 40px;
+            margin: 30px;
+            width: 50vw;
+            height: 40vw;
+        }
+        h1 {
+            font-size: 70px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: bold;
+            line-height: 0;
+            margin-bottom: 55px;
+        }
+        h1.Name {
+            font-size: 70px;
+            color: #3bcfe9 !important;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+        p {
+            font-size: 30px;
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1;
+            max-width: 600px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            h1.Name {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+        }
+        .btn-default {
+        display: inline-block;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 020px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #000000;
+        background-color: #ffffff;
+        border: none;
+        border-radius: 50px; 
+        }
+    .btn-default:hover {
+        transform: translateY(-2px);
+    }
+    .icons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    }
+
+    .icon {
+        width: 110px;
+        height: 100px;
+        padding: 10px;
+        background-color: #efe9e9;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+        transition: opacity is ease-in-out;
+    }
+    .icon:hover {
+        opacity: .5;
+    }
+    p.Technologies {
+        font-size: 18px;
+        font-family: 'Times New Roman', Times, serif;
+        text-align: center;
+        margin-left: 270px;
+    }
+
+    #about{
+        font-size: 25px;
+        font-family: 'Times New Roman', Times, serif;
+        text-align: justify;
+    }
+    #contact {
+        font-size: 25px;
+        font-family: 'Times New Roman', Times, serif;
+        text-align: justify;
+    }
+    .btn-default1 {
+        margin-top: 100px;
+        margin-left: 500px;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: #000000;
+        background-color: #ffffff;
+        border: none;
+        border-radius: 50px; 
+        }
+    footer {
+    background-color: #707f90;
+    text-align: center;
+    padding: 20px;
+    color: #333;
+    }
+    .social-icons {
+    margin: 15px 0;
+    }
+
+    .social-icons a {
+    color: #333;
+    margin: 0 20px;
+    font-size: 20px;
+    text-decoration: none;
+    }
+    
+    p.credits {
+    font-size: 15px;
+    color: black;
+    text-align: center;
+    margin-left: 450px;
+    }
+    .me{
+        width: 100px;
+        height: auto;
+    }
+    
+    </style>
+
+</head>
+<body>
+    <div class="toggle-container">
+        <input type="checkbox" id="darkModeToggle">
+        <label for="darkModeToggle" class="toggle-label">
+          <span class="toggle-icon">🌙</span>
+        </label>
+    </div>
+
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+        <ul class="nav navbar-nav">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <section id="home">
+        <div class="home-container">
+                <h1>Hey there! I'm</h1>
+                <h1 class="Name">John Paul Triumfante</h1>
+                <p>A third-year BSIT student, currently honing<br> my skills to become a future Front-End Developer. Based in the Philippines.</p>
+                <a href="#contact" class="btn btn-default">Contact</a>
+            </div>    
+            <div>
+                <img src="pic/me.jpg" alt="Front-End Developer" class="img-box" style="height: 400px; width: 350px; border: solid #92a4b8; margin-left: 850px; position:absolute; top: 0; margin-top: 100px; border-radius: 100px;">
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="about" class="container">
+        <h1 class="text-center">About Me</h1>
+        <div class="page-header"></div>
+        <div class="col-text"> Hello! My name is John Paul Triumfante, and I’m a passionate 3rd-year BSIT student specializing in Front-End Development. I have a strong interest in creating visually appealing and user-friendly websites and applications. Currently, I’m enhancing my skills in HTML, CSS, JavaScript, and various front-end frameworks to build responsive, interactive, and accessible web interfaces.
+
+            My goal is to become a skilled front-end developer who brings design ideas to life while ensuring an optimal user experience. I’m always eager to learn new technologies and improve my abilities, aiming to make a positive impact in the tech world.</div>
+
+
+    </section>
+
+    <section id="skills" class="container">
+        <div class="page-header">
+            <h1 class="text-center">Skills</h1>
+            <p class="Technologies">Technologies</p>
+        </div>
+        <div class="icons-container text-center">
+            <img src="pic/s1.png" class="img-thumbnail icon" data-toggle="tooltip" data-placement="top" title="HTML" />
+            <img src="pic/s2.png" class="img-thumbnail icon" data-toggle="tooltip" data-placement="top" title="CSS"/>
+            <img src="pic/s3.png" class="img-thumbnail icon" data-toggle="tooltip" data-placement="top" title="JAVASCRIPT"/>
+            <img src="pic/s4.png" class="img-thumbnail icon" data-toggle="tooltip" data-placement="top" title="BOOTSTRAP"/>
+            <img src="pic/s5.png" class="img-thumbnail icon" data-toggle="tooltip" data-placement="top" title="JAVA"/>
+            <img src="pic/s6.png" class="img-thumbnail icon" data-toggle="tooltip" data-placement="top" title="MYSQL"/>
+            <img src="pic/s8.svg" class="img-thumbnail icon" data-toggle="tooltip" data-placement="top" title="PHP"/>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h1 class="text-center">Contact</h1>
+            <div>
+                <div class="col-text">If you have any questions or just want to say hello, feel free to reach out. I'll do my best to respond promptly!</div>
+            </div>
+        </div>
+        <button class="btn btn-default1" data-toggle="modal" data-target="#contactModal">Contact Me!</button>
+        <div class="modal fade" id="contactModal" >
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="contactModalLabel">Send a Message</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="emailInput"><i class="fas fa-envelope"></i> Email</label>
+                                <input type="email" class="form-control" id="emailInput" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="nameInput"><i class="fas fa-user"></i> Name</label>
+                                <input type="text" class="form-control" id="nameInput" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="messageInput">Message</label>
+                                <textarea class="form-control" id="messageInput" rows="3" placeholder="Message"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-dark">Submit</button>
+                        </form>
+                    </div>
+                </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+          <div class="social-icons">
+            <a href="https://github.com/JohnPaulTriumfante/JohnPaulTriumfante2" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.facebook.com/johnpauul18" target="_blank">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </div>
+          <p class="credits">
+            Designed & Built by John Paul Triumfante<br>
+            Copyright © 2024 - All rights reserved
+          </p>
+        </div>
+      </footer>
+
+
+</body>
+
+<script>
+    const toggleSwitch = document.getElementById('darkModeToggle');
+
+    toggleSwitch.addEventListener('change', () => {
+        document.body.classList.toggle('dark-theme');
+        document.body.classList.toggle('light-theme');
+    });
+
+    document.body.classList.add('light-theme');
+</script>
+</html>
